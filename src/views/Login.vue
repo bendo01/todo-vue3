@@ -19,8 +19,8 @@ export default {
     name: 'Login',
     data: function () {
         return {
-            email: 'bendo01@gmail.com',
-            password: 'sayatest',
+            email: '',
+            password: '',
             user: {},
             token:''
         }
