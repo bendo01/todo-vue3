@@ -29,7 +29,7 @@ export default {
         loginUser() {
             if (this.email !== "" && this.password !== "") {
                 // alert('Melakukan proses login');
-                axios.post('http://todo.test/api/login', {
+                axios.post('https://todo.xsia.app/api/login', {
                     email: this.$data.email,
                     password: this.$data.password
                 }, {
