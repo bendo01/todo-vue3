@@ -14,17 +14,17 @@
       <div class="flex mb-4 items-center" v-for="model in models" v-bind:key="model.id">
         <template v-if="model.is_finish">
           <p class="w-full line-through text-green-500">{{ model.description }}</p>
-          <button class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-red-500 text-gray-500 border-gray-300 hover:bg-gray-300">
+          <button class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-red-500 text-gray-500 border-gray-300 hover:bg-gray-300" @click="updateTask(model.id)">
             <span class="mdi mdi-close-box"></span>
           </button>
         </template>
         <template v-else>
           <p class="w-full text-gray-500">{{ model.description }}</p>
-          <button class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green-500 border-green-300 hover:bg-green-300">
+          <button class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green-500 border-green-300 hover:bg-green-300" @click="updateTask(model.id)">
             <span class="mdi mdi-check"></span>
           </button>
         </template>
-        <button class="flex-no-shrink p-2 ml-2 border-2 rounded text-red-500 border-red-500 hover:text-white hover:bg-red-500">
+        <button class="flex-no-shrink p-2 ml-2 border-2 rounded text-red-500 border-red-500 hover:text-white hover:bg-red-500" @click="deleteTask(model.id)">
           <span class="mdi mdi-delete"></span>
         </button>
       </div>
@@ -83,11 +83,11 @@ export default {
       }
       this.getTask();
     },
-    updateTask() {
-
+    updateTask(modelId) {
+      alert('memanggil update task untuk id:' + modelId);
     },
-    deleteTask() {
-
+    deleteTask(modelId) {
+      alert('memanggil delete task' + modelId);
     }
   },
   mounted() {
