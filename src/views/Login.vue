@@ -29,7 +29,7 @@ export default {
         loginUser() {
             if (this.email !== "" && this.password !== "") {
                 // alert('Melakukan proses login');
-            var xdata = axios.post('http://todo.test/api/login', {
+                axios.post('http://todo.test/api/login', {
                     email: this.$data.email,
                     password: this.$data.password
                 }, {
@@ -39,13 +39,15 @@ export default {
                     //console.log(response.data.token);
                     this.token = response.data.token;
                     this.user = response.data.user;
-                    alert('Selamat datang ' + this.user.name);
+                    this.$store.dispatch('setToken', this.token);
+                    this.$store.dispatch('setUser', this.user);
+                    this.$store.dispatch('loggedIn');
+                    this.$router.push({ name: 'Home'});
                     
                 }.bind(this))
                 .catch(function (error) {
                     console.log(error);
                 });
-            console.log(xdata);
             } else {
                 alert('Input Anda Belum Lengkap');
             }
